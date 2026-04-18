@@ -6,7 +6,10 @@ Eigenstaendiges 2D-Tower-Defense-Spiel im Dragon-Ball-Kosmos (DB/DBZ/GT/Super), 
 ## Must (Release-kritisch)
 - Spielbares Core-Loop: Unit platzieren -> Wellen abwehren -> Sieg/Niederlage.
 - Stabiler 2D-Tech-Stack (`Phaser 3 + TypeScript + Vite`) mit sauberer Projektstruktur.
-- Mindestens 1 voll spielbare Map mit Pfad, Spawnpunkten, Zielpunkt und 10+ Wellen.
+- Mindestens 1 voll spielbare Blaupausen-Map mit Pfad, Spawnpunkten, Zielpunkt und 100 Wellen.
+- Encounter-Taktung in der Blaupausen-Map: schwerer Encounter alle 10 Wellen (10-90), Endboss auf Welle 100.
+- Bereichs-Placement pro Map: Wasser, Feld, Gras, Wald, Gebirge, Himmel.
+- Unit-Deployment-Regel: Jede Unit darf exakt 1-3 spezifische Bereiche abdecken (Spezialist bis flexibel).
 - Grundsysteme: Placement-Regeln, Targeting, Angriffstimer, Schaden, HP, Kills.
 - Mindestens 8-10 spielbare Units mit klaren Rollen (Single-Target, AoE, Slow, Support).
 - Mindestens 10 Gegnertypen inkl. 1 Boss-Welle.
