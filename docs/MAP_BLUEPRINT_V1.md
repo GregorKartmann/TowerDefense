@@ -10,7 +10,7 @@ Die Vorgabe "alle 10 Maps ein schwerer Encounter" wird fuer diese Blaupause als 
 - Jede Map hat exakt 100 Wellen.
 - Schwere Encounter auf Welle 10, 20, 30, 40, 50, 60, 70, 80, 90.
 - Welle 100 ist immer Endboss (mehrphasig).
-- Jede Map enthaelt alle 6 Bereichstypen fuer Placement:
+- Jede Map nutzt eine variable Teilmenge der Bereichstypen (map-spezifisch):
   - Wasser
   - Feld
   - Gras
@@ -20,6 +20,12 @@ Die Vorgabe "alle 10 Maps ein schwerer Encounter" wird fuer diese Blaupause als 
 - Jede Unit hat 1-3 erlaubte Bereichstypen (`deployZones`).
 
 ## Bereichs-System (Placement)
+
+### Bereichsregeln pro Map
+- Eine Map soll 2-4 Primarbereiche haben.
+- Optional kann eine Map 1-2 Sekundaerbereiche zusaetzlich haben.
+- Jede Map muss mindestens 2 Bereichstypen enthalten.
+- Alle 6 Bereichstypen muessen ueber das gesamte Spiel hinweg abgedeckt sein, nicht zwingend pro einzelner Map.
 
 ### Taktische Rolle je Bereich
 - Wasser: Control/Slow, Linienkontrolle, eher wenige Slots.
@@ -31,17 +37,13 @@ Die Vorgabe "alle 10 Maps ein schwerer Encounter" wird fuer diese Blaupause als 
 
 ### Slot-Budget fuer eine Blaupausen-Map
 Empfehlung bei 60 Build-Slots:
-- Wasser: 8
-- Feld: 14
-- Gras: 10
-- Wald: 10
-- Gebirge: 10
-- Himmel: 8
+- Primarbereiche: 12-16 Slots pro Bereich
+- Sekundaerbereiche: 6-10 Slots pro Bereich
 
 Regel fuer Folge-Maps:
-- Jeder Bereich muss mindestens 6 Slots haben.
-- Kein Bereich darf mehr als 30 Prozent aller Slots halten.
-- Primar-Biome einer Map duerfen +4 Slots erhalten, Sekundaer-Biome +2.
+- Kein einzelner Bereich darf mehr als 40 Prozent aller Slots halten.
+- Mindestens 60 Prozent der Slots sollen auf Primarbereiche entfallen.
+- Sekundaerbereiche dienen als taktische Ausnahmeflaechen, nicht als Hauptflaeche.
 
 ## Unit-Bereichsmodell (1-3 deployZones)
 
@@ -110,7 +112,7 @@ Pflichtkriterien fuer den Boss:
 Jede neue Map wird mit dieser Checkliste gebaut:
 - Map-Identitaet: Thema, Primar- und Sekundaer-Biome
 - Pfadlayout: Anzahl Lanes, Merge/Split-Punkte, kritische Chokepoints
-- Slotverteilung auf 6 Bereichstypen
+- Slotverteilung auf die gewaehte Teilmenge der Bereichstypen
 - Kapitelplan 1-10 mit Encounter-Mechanik je 10er-Block
 - Endboss-Mechanik und 3 Phasen
 - Erwartete Rundendauer und Ziel-Schwierigkeit
@@ -141,7 +143,7 @@ Jede neue Map wird mit dieser Checkliste gebaut:
 
 ## Must-Umsetzung in 4 Schritten
 - Schritt 1: Bereichssystem + `deployZones`-Regel technisch implementieren.
-- Schritt 2: Map-01 mit 60 Slots und 6 Bereichstypen aufbauen.
+- Schritt 2: Map-01 mit 60 Slots und 2-6 Bereichstypen aufbauen.
 - Schritt 3: Wave-Director fuer 100 Wellen inkl. Encounter-Taktung (10-90) bauen.
 - Schritt 4: Endboss-Welle 100 mit 3 Phasen und klaren Telegraphs integrieren.
 
